@@ -1,0 +1,16 @@
+{
+  "description": "Six-dimension Process Reward Model (PRM) evaluator for AI agent traces.",
+  "publisher": "huanmeng9527",
+  "license": "MIT-0",
+  "useCase": "Score AI agent turns across six dimensions for dashboards, audits, or downstream RL loops.",
+  "deploymentGeography": "Global",
+  "risks": [
+    {"risk": "Composite scores can mask regressions", "mitigation": "Inspect per-dimension scores, not just average"},
+    {"risk": "LLM-as-judge inherits judge-model biases", "mitigation": "Validate against human raters periodically"},
+    {"risk": "Raw traces may contain user data", "mitigation": "Redact before persistence"}
+  ],
+  "output": {
+    "types": ["text", "markdown", "code", "configuration", "guidance"],
+    "format": "Markdown guidance with inline JSON evaluation examples"
+  }
+}
