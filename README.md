@@ -5,7 +5,7 @@
 
 [![ClawHub](https://img.shields.io/badge/ClawHub-huanmeng9527%2Fclaw--rl--prm--judge-blue)](https://clawhub.ai/huanmeng9527/skills/claw-rl-prm-judge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-green)]()
+[![Version](https://img.shields.io/badge/version-1.0.5-green)]()
 
 Adapted from the **OpenClaw-RL** online policy optimization loop — the same evaluator that processed **12,000+ real agent interactions across 6 months of production deployment**.
 

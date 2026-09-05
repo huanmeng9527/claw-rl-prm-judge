@@ -1,14 +1,15 @@
 ---
 name: claw-rl-prm-judge
-description: Six-dimension Process Reward Model (PRM) evaluator for AI agent traces. Use when reviewing an agent's interaction for intent alignment, reasoning quality, tool appropriateness, safety compliance, efficiency, and user value. Triggers on phrases like "evaluate this agent turn", "score agent quality", "PRM judge", "process reward", "agent self-review".
-version: 0.1.0
+description: Score and improve AI agent responses across six dimensions (intent, reasoning, tools, safety, efficiency, value). Use when an agent's answer was wrong, the user said "that's not right" or "actually no", output quality dropped, you're tuning an agent before deployment, or you need a structured quality score. Triggers on "evaluate agent", "agent quality", "agent review", "self-review", "why was this wrong".
+version: 1.0.5
 triggers:
   - "evaluate agent"
-  - "score agent turn"
-  - "PRM judge"
-  - "process reward"
-  - "agent self-review"
   - "agent quality"
+  - "agent review"
+  - "self-review"
+  - "that's not right"
+  - "actually no"
+  - "review my agent"
 metadata:
   openclaw:
     requires:
@@ -22,6 +23,18 @@ metadata:
 # Claw RL — PRM Judge (Six-Dimension Process Reward Model)
 
 Evaluate an AI agent turn across six fine-grained dimensions, not just whether the task succeeded. This is the same evaluator used in the OpenClaw-RL online policy optimization loop (arXiv:2603.12644).
+
+## Quick Reference
+
+| Situation | What to do |
+|-----------|------------|
+| User said "that's not right" or "actually no" | Run PRM judge; check `intent_alignment` and `user_value` |
+| Agent used wrong tool / wrong arguments / wrong path | Check `tool_appropriateness` |
+| Multi-step task collapsed mid-way | Check `reasoning_quality` and `efficiency` |
+| Output quality dropped over time | Run judge on recent turns; plot per-dimension trend |
+| Tuning an agent before deployment | Run judge as baseline; persist scores per turn |
+| RL training loop | Use six scores as separate reward signals (not just composite) |
+| Comparing two agent versions | A/B test on per-dimension deltas |
 
 ## When to use
 
